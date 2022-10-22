@@ -13,15 +13,19 @@ const images = [
   },
 ];
 
-// for (let i = 0; i < images.length; i += 1) {
-//   console.log(images[i]);
-// }
+// const galleryRefs = document.querySelector(".gallery");
+// let markup = "";
+
+// images.forEach(({ url }, { alt }) => {
+//   return (markup += `<li class="gallery__item"><img src="${url}" alt="${alt}"></li>`);
+// });
+
+// galleryRefs.insertAdjacentHTML("afterbegin", markup);
 
 const galleryRefs = document.querySelector(".gallery");
-let markup = "";
-
-images.forEach(({ url }, { alt }) => {
-  return (markup += `<li class="gallery__item"><img src="${url}" alt="${alt}"></li>`);
-});
+let markup = images.map(
+  ({ url }, { alt }) =>
+    `<li class="gallery__item"><img src="${url}" alt="${alt}"></li>`
+);
 
 galleryRefs.insertAdjacentHTML("afterbegin", markup);
